@@ -39,5 +39,8 @@ use Psr\Container\ContainerInterface;
 
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
+
+    // The API routes
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    $app->post('/api/subscribe/sms', App\Handler\SmsSubscribeUnsubscribeHandler::class, 'api.sms.subscribe');
 };
